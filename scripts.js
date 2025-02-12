@@ -6,11 +6,11 @@ function createGrid(gridCount) {
 		gridColumn.className = `grid-${i}`;
 		gridColumn.style.display = 'flex';
 
-		gridColumn.style.flex = `1 0 ${(1 / xGrid * 100) - 1}%`;
 		gridColumn.style['flex-wrap'] = 'wrap';
 		gridColumn.style.padding = '0px';
 		gridColumn.style.border = '0px';
-		gridColumn.style.margin = '2px';
+		gridColumn.style.margin = '0px';
+		gridColumn.style.flex = `1 0 ${(1 / xGrid * 100) - 0.001}%`; 
 		gridColumn.style['background-color'] = 'gray';
 		container.append(gridColumn);
 	};
@@ -25,7 +25,8 @@ function randRGB() {
 };
 
 const container = document.querySelector("#grid-container");
-const nGrids = 16;
+const nSide = 64;
+const nGrids = nSide ** 2;
 
 createGrid(nGrids);
 
@@ -39,3 +40,5 @@ for (i = 0; i < nGrids; i++) {
 		event.target.style['background-color'] = `rgb(${r}, ${g}, ${b})`;
 	})
 }
+
+console.log(nGrids);
