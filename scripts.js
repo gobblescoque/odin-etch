@@ -1,6 +1,6 @@
 function createGrid(gridCount) {
 
-	let xGrid = Math.sqrt(gridCount);
+	const xGrid = Math.sqrt(gridCount);
 	for (i = 0; i < gridCount; i++) {
 		const gridColumn = document.createElement('div');
 		gridColumn.className = `grid-${i}`;
@@ -8,16 +8,34 @@ function createGrid(gridCount) {
 
 		gridColumn.style.flex = `1 0 ${(1 / xGrid * 100) - 1}%`;
 		gridColumn.style['flex-wrap'] = 'wrap';
-		// gridColumn.style['padding'] = '0px';
 		gridColumn.style.padding = '0px';
 		gridColumn.style.border = '0px';
 		gridColumn.style.margin = '2px';
-		// gridColumn.style['height'] = '100vh';
-		gridColumn.style['background-color'] = 'green';
+		gridColumn.style['background-color'] = 'gray';
 		container.append(gridColumn);
 	};
 };
 
-const container = document.querySelector("#grid-container");
+function randRGB() {
+	const r = Math.round(Math.random() * 255);
+	const g = Math.round(Math.random() * 255);
+	const b = Math.round(Math.random() * 255);
 
-createGrid(16);
+	return [r, g, b]
+};
+
+const container = document.querySelector("#grid-container");
+const nGrids = 16;
+
+createGrid(nGrids);
+
+for (i = 0; i < nGrids; i++) {
+	const grid = container.querySelector(`.grid-${i}`);
+	grid.addEventListener('mouseover', (event) => {
+		const rgb = randRGB();
+		r = rgb[0];
+		g = rgb[1];
+		b = rgb[2];
+		event.target.style['background-color'] = `rgb(${r}, ${g}, ${b})`;
+	})
+}
