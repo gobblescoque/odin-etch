@@ -12,6 +12,7 @@ function createGrid(nSide) {
 		gridColumn.style.margin = '0px';
 		gridColumn.style.flex = `1 0 ${(1 / nSide * 100) - 0.001}%`; 
 		gridColumn.style['background-color'] = 'gray';
+		gridColumn.style.opacity = '50%'
 		container.append(gridColumn);
 	};
 
@@ -56,7 +57,6 @@ const nGrids = nSide ** 2;
 createGrid(nSide);
 
 
-
 button.addEventListener("click", (event) => {
 	const inputGridSize = prompt("Enter desired number of grids (side):");
 	const numCurrentGrids = container.childElementCount;
@@ -72,4 +72,7 @@ button.addEventListener("click", (event) => {
 	// createGrid(newSize);
 });
 
-console.log(container.childElementCount);
+// Use this to alter the darkness 
+const testGrid = container.querySelector('.grid-0');
+const compStyles = window.getComputedStyle(testGrid);
+console.log(compStyles.getPropertyValue("opacity"));
