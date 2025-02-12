@@ -1,7 +1,7 @@
 #grid-container {
 	display: flex;
 	flex-wrap: wrap;
-	height: 98vh;
+	height: 94vh;
 	margin: 0px;
 /*	flex: 1 0 0;*/
 /*	flex-grow: 1;*/
