@@ -10,7 +10,7 @@ function createGrid(nSide) {
 		gridColumn.style.border = '0px';
 		gridColumn.style.margin = '0px';
 		gridColumn.style.flex = `1 0 ${(1 / nSide * 100) - 0.001}%`; 
-		gridColumn.style['background-color'] = 'gray';
+		gridColumn.style['background-color'] = 'black';
 		gridColumn.style.opacity = '0%'
 		container.append(gridColumn);
 	};
